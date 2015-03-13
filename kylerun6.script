@@ -1,0 +1,21 @@
+// Created by Nico for ETrun
+// Last update 12 03 2015
+
+fake_game_manager
+{
+	trigger
+	{
+		// secret hidden trigger_multiple is linked to the same stopTimer
+		// as the legit end trigger_multiple, so it cannot be removed. I clip it.
+
+		// Clip 1
+		create
+		{
+			classname "func_fakebrush"
+			contents "1"
+			origin "-3552 4128 32"
+			mins "-32 -32 0"
+			maxs "32 32 704"
+		}
+	}
+}
