@@ -1,6 +1,6 @@
 // ============================================================================
 // Map: Fueldump
-// Last update : 01/05/03 Sock
+// Last update : 14/03/15 Nico
 // ============================================================================
 game_manager
 {
@@ -256,12 +256,12 @@ game_manager
 		// *----------------------------------- vo ------------------------------------------*
 		wm_addteamvoiceannounce 0 "fueldump_axis_bridge_stop"
 
-		wm_addteamvoiceannounce 1 "fueldump_allies_bridge_construct"
+		wm_addteamvoiceannounce 0 "fueldump_allies_bridge_construct"
 
 		wm_teamvoiceannounce 0 "fueldump_axis_bridge_stop"
 		wm_teamvoiceannounce 0 "axis_hq_compost_construct"
 
-		wm_teamvoiceannounce 1 "fueldump_allies_bridge_construct"
+		wm_teamvoiceannounce 0 "fueldump_allies_bridge_construct"
 		// *---------------------------------------------------------------------------------*
 	}
 
@@ -400,7 +400,7 @@ thebridge_lms
 	spawn
 	{
 		wait 100
-		setstate thebridge_lms invisible
+		setstate thebridge_lms default
 
 		setstate lms_hacabinet_cm_marker invisible
 		setstate lms_hacabinet_toi invisible
@@ -828,8 +828,8 @@ thebridge
 		wait 200
 
 		constructible_class 3
-		setstate bridgematerials_stage1 default
-		setstate bridgematerials_stage2 default
+		setstate bridgematerials_stage1 invisible
+		setstate bridgematerials_stage2 invisible
 
 		accum 7 bitset 1	// Tank NOT over bridge yet
 	}
@@ -864,7 +864,7 @@ thebridge
 	//-----------------------------------------------------------------------
 	death
 	{
-		setstate bridgematerials_stage1 default		// Restore stage 1 construction items
+		setstate bridgematerials_stage1 invisible	// Restore stage 1 construction items
 		togglespeaker bridge_expl			// Explosion
 
 		trigger tank clearBridge
